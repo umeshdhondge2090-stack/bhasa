@@ -18,7 +18,7 @@ export function bubbleFor(v) {
 
 function Quote() {
   return (
-    <section className="quote" aria-label="BhashaSetu message">
+    <section className="quote" aria-label="Johar message">
       <span className="quote__mark" aria-hidden="true">“</span>
       <p>Language is not a barrier, it's a bridge.</p>
       <svg viewBox="0 0 320 110" preserveAspectRatio="xMidYMax slice" aria-hidden="true">

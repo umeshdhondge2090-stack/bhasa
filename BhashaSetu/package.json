@@ -1,8 +1,8 @@
 {
-  "name": "bhashasetu",
+  "name": "johar",
   "private": true,
   "version": "1.0.0",
-  "description": "BhashaSetu - offline Hindi <-> Santhali classroom companion (UI)",
+  "description": "Johar - offline Hindi <-> Mundari classroom companion (UI)",
   "type": "module",
   "scripts": {
     "dev": "vite",

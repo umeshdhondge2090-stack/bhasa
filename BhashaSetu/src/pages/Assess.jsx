@@ -77,7 +77,7 @@ export default function Assess({ navigate }) {
             <div className="scan" key="s0">
               <SheetArt />
               <h2>Scan the answer sheet</h2>
-              <p>Hold the sheet flat in good light. Santhali answers are converted to Hindi for you.</p>
+              <p>Hold the sheet flat in good light. Mundari answers are converted to Hindi for you.</p>
               <div className="scan__actions">
                 <button className="btn btn--primary" onClick={() => file.current?.click()}>
                   <LuCamera size={20} /> Scan Answer Sheet
@@ -109,7 +109,7 @@ export default function Assess({ navigate }) {
           {step === 2 && (
             <div key="s2">
               <h2 className="stage-title">Language conversion</h2>
-              <p className="stage-sub">{ANSWER_SHEET.student} • Santhali answers converted to Hindi</p>
+              <p className="stage-sub">{ANSWER_SHEET.student} • Mundari answers converted to Hindi</p>
               <ul className="qa-list">
                 {ANSWER_SHEET.questions.map((q, i) => (
                   <li key={i} style={{ '--d': i }} className="rise">

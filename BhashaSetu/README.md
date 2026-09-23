@@ -1,6 +1,6 @@
-# BhashaSetu — classroom companion UI
+# Johar — classroom companion UI
 
-Offline-first Hindi <-> Santhali classroom companion. React + Vite, no UI framework: plain CSS design tokens,
+Offline-first Hindi <-> Mundari classroom companion. React + Vite, no UI framework: plain CSS design tokens,
 inline SVG illustrations and a fully original SVG character. Only runtime dependencies: react, react-dom, react-icons.
 
 ## Run
@@ -35,7 +35,7 @@ and `markResponse('correct' | 'incorrect' | 'unclear')` triggers happy / encoura
 
 Everything runs in demo mode on sample phrases (`src/data/content.js`). Replace `engine.nextUtterance()`
 (speech -> text -> translation) and `engine.speak()` (text-to-speech) in `src/services/engine.js`.
-The Santhali (Ol Chiki) sample text is placeholder content: have a native speaker verify it.
+The Mundari sample text is placeholder content: have a native speaker verify it.
 
 ## Fonts
 

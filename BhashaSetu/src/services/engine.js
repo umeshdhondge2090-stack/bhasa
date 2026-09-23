@@ -120,7 +120,7 @@ export const engine = {
     return s;
   },
 
-  // Speaks text (Santhali or Hindi) using Neural TTS or browser SpeechSynthesis
+  // Speaks text (Mundari or Hindi) using Neural TTS or browser SpeechSynthesis
   async speak(text, { lang = 'sat', rate = 1, roman = '' } = {}) {
     if (!text || !text.trim()) return false;
     this.stopSpeaking();
@@ -161,7 +161,7 @@ export const engine = {
       if (!('speechSynthesis' in window)) return false;
       window.speechSynthesis.cancel();
       const u = new SpeechSynthesisUtterance(phoneticText);
-      u.lang = 'hi-IN'; // Indian phonetics reads the transliterated Santhali/Devanagari
+      u.lang = 'hi-IN'; // Indian phonetics reads the transliterated Mundari/Devanagari
       u.rate = rate;
       window.speechSynthesis.speak(u);
       return true;

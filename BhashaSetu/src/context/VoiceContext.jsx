@@ -87,7 +87,7 @@ export function VoiceProvider({ children }) {
       const list = words(dst);
       setPhase('speaking');
       const step = 330 / rate;
-      // Speak the translated destination text (Santhali or Hindi)
+      // Speak the translated destination text (Mundari or Hindi)
       engine.speak(dst, {
         lang: dirRef.current === 'hi-sat' ? 'sat' : 'hi-IN',
         rate,

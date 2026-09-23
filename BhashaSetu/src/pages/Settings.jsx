@@ -17,7 +17,7 @@ export default function Settings() {
   const voice = useVoice();
   return (
     <div className="page settings">
-      <PageHeader title="Settings" subtitle="Make BhashaSetu comfortable for your classroom" />
+      <PageHeader title="Settings" subtitle="Make Johar comfortable for your classroom" />
       <div className="surface settings__card">
         <div className="row">
           <div><b>Class</b><small>The class you are teaching today</small></div>
@@ -28,8 +28,8 @@ export default function Settings() {
         <div className="row">
           <div><b>Translation direction</b><small>Who speaks, and who listens</small></div>
           <div className="seg-text" role="group" aria-label="Translation direction">
-            <button className={direction === 'hi-sat' ? 'is-on' : ''} onClick={() => { voice.reset(); setDirection('hi-sat'); }}>Hindi → Santhali</button>
-            <button className={direction === 'sat-hi' ? 'is-on' : ''} onClick={() => { voice.reset(); setDirection('sat-hi'); }}>Santhali → Hindi</button>
+            <button className={direction === 'hi-sat' ? 'is-on' : ''} onClick={() => { voice.reset(); setDirection('hi-sat'); }}>Hindi → Mundari</button>
+            <button className={direction === 'sat-hi' ? 'is-on' : ''} onClick={() => { voice.reset(); setDirection('sat-hi'); }}>Mundari → Hindi</button>
           </div>
         </div>
         <div className="row">
@@ -45,7 +45,7 @@ export default function Settings() {
           <Toggle checked={prefs.reduceMotion} onChange={(v) => setPrefs({ reduceMotion: v })} label="Calmer animations" />
         </div>
         <div className="row">
-          <div><b>About</b><small>BhashaSetu • Every Child. Every Language. • Engine: {engine.mode} mode</small></div>
+          <div><b>About</b><small>Johar • Every Child. Every Language. • Engine: {engine.mode} mode</small></div>
         </div>
       </div>
     </div>

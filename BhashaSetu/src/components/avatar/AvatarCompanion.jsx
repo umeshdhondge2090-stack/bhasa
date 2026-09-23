@@ -223,7 +223,7 @@ export default function AvatarCompanion({
         {DEFAULT_BUBBLE[state] || ''}
       </span>
 
-      <svg className="avatar__svg" viewBox="0 0 400 560" role="img" aria-label={`BhashaSetu companion — ${cfg.label}`}>
+      <svg className="avatar__svg" viewBox="0 0 400 560" role="img" aria-label={`Johar companion — ${cfg.label}`}>
         <defs>
           <linearGradient id="avKurta" x1="0" y1="0" x2="0" y2="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(0 300) scale(1 260)">
             <stop offset="0" stopColor="#FBF4E8" />

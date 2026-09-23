@@ -119,7 +119,7 @@ function BooksFlow({ say, done }) {
         {stage === 1 && (
           <div className="flow__words">
             <div><small>Hindi</small><strong className="hi">{word.hi}</strong></div>
-            <div><small>Santhali</small><strong className="sat">{word.sat}</strong><em>{word.roman}</em></div>
+            <div><small>Mundari</small><strong className="sat">{word.sat}</strong><em>{word.roman}</em></div>
           </div>
         )}
         {stage === 2 && (
@@ -265,7 +265,7 @@ function MatchGame({ say }) {
   };
   return (
     <div className="flow">
-      <p className="flow__hint">Match each Santhali word with its picture</p>
+      <p className="flow__hint">Match each Mundari word with its picture</p>
       <div className="match">
         <div className="match__col">
           {sats.map((w) => (
