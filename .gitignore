@@ -2,6 +2,16 @@
 node_modules/
 BhashaSetu/node_modules/
 
+# Production build outputs
+dist/
+BhashaSetu/dist/
+.vercel/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
 # Python cache
 __pycache__/
 *.py[cod]
@@ -21,3 +31,4 @@ venv/
 # System files
 .DS_Store
 Thumbs.db
+

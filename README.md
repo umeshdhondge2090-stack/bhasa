@@ -17,6 +17,28 @@ BhashaSetu is an offline-first AI translation and speech companion designed for 
 
 ---
 
+## Deploy to Vercel
+
+The project is pre-configured with `vercel.json` for one-click deployment on [Vercel](https://vercel.com):
+
+### Option A: Automatic Import (Default)
+1. Push your repository to GitHub.
+2. Go to your [Vercel Dashboard](https://vercel.com/dashboard) and click **"Add New..." -> "Project"**.
+3. Import your `bhasa` repository.
+4. Keep all default build settings (they are automatically detected from `vercel.json`).
+5. Click **Deploy**.
+
+### Option B: Deploying with Root Directory set to `BhashaSetu`
+1. If you configure Vercel with **Root Directory** set to `BhashaSetu` in project settings, it will also build automatically using `BhashaSetu/vercel.json`.
+
+### Connecting a Live Model Backend on Vercel (Optional)
+By default, the deployed Vercel site runs in offline/interactive classroom mode with built-in curriculum, vocabulary, and browser voice synthesis. If you have deployed the FastAPI mT5 backend (e.g. on Hugging Face Spaces or Render), add the following environment variable in your Vercel Project Settings:
+
+- **Key**: `VITE_API_BASE`
+- **Value**: `https://<your-space-name>.hf.space/api` (or your backend URL)
+
+---
+
 ## Manual Setup
 
 ### 1. Prerequisites

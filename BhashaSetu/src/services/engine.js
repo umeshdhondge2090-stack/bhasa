@@ -4,9 +4,11 @@ import { SAMPLES } from '../data/content';
  * Language engine adapter connecting UI to the local ML model backend (FastAPI) and TTS.
  */
 const API_BASE =
-  typeof window !== 'undefined' && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1'
-    ? '/api'
-    : 'http://127.0.0.1:8000/api';
+  (typeof import.meta !== 'undefined' && import.meta.env && import.meta.env.VITE_API_BASE)
+    ? import.meta.env.VITE_API_BASE.replace(/\/+$/, '')
+    : (typeof window !== 'undefined' && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1'
+        ? '/api'
+        : 'http://127.0.0.1:8000/api');
 
 let cursor = 0;
 // Current active HTML Audio element for neural TTS playback
@@ -70,7 +72,8 @@ export const engine = {
   async checkBackend() {
     try {
       const res = await fetch(`${API_BASE}/status`, { signal: AbortSignal.timeout(2500) });
-      if (res.ok) {
+      const ct = res.headers.get('content-type') || '';
+      if (res.ok && ct.includes('application/json')) {
         const data = await res.json();
         this.mode = 'live';
         this.modelInfo = data;
@@ -98,7 +101,8 @@ export const engine = {
         signal: AbortSignal.timeout(15000),
       });
 
-      if (res.ok) {
+      const ct = res.headers.get('content-type') || '';
+      if (res.ok && ct.includes('application/json')) {
         const data = await res.json();
         return {
           hi: source_lang === 'hi' ? data.source_text : data.translated_text,
@@ -143,7 +147,8 @@ export const engine = {
         signal: AbortSignal.timeout(6000),
       });
 
-      if (res.ok) {
+      const ct = res.headers.get('content-type') || '';
+      if (res.ok && !ct.includes('text/html')) {
         const blob = await res.blob();
         const url = URL.createObjectURL(blob);
         const audio = new Audio(url);

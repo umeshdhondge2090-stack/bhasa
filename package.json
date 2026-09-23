@@ -3,10 +3,14 @@
   "version": "1.0.0",
   "private": true,
   "description": "BhashaSetu workspace with local mT5 model integration",
+  "workspaces": [
+    "BhashaSetu"
+  ],
   "scripts": {
+    "install": "npm --prefix BhashaSetu install",
     "dev": "npm --prefix BhashaSetu run dev",
     "backend": "py -3.13 server.py",
-    "build": "npm --prefix BhashaSetu run build",
+    "build": "npm --prefix BhashaSetu install && npm --prefix BhashaSetu run build && node -e \"const fs=require('fs'); if(fs.existsSync('BhashaSetu/dist')) fs.cpSync('BhashaSetu/dist', 'dist', {recursive: true});\"",
     "preview": "npm --prefix BhashaSetu run preview"
   }
 }
