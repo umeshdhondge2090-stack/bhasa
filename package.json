@@ -1,0 +1,12 @@
+{
+  "name": "bhasa",
+  "version": "1.0.0",
+  "private": true,
+  "description": "BhashaSetu workspace with local mT5 model integration",
+  "scripts": {
+    "dev": "npm --prefix BhashaSetu run dev",
+    "backend": "py -3.13 server.py",
+    "build": "npm --prefix BhashaSetu run build",
+    "preview": "npm --prefix BhashaSetu run preview"
+  }
+}

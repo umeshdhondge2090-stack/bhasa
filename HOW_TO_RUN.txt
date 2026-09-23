@@ -1,0 +1,42 @@
+================================================================
+   BhashaSetu - Hindi <-> Mundari / Santhali AI Classroom Companion
+================================================================
+
+This package contains everything needed to run BhashaSetu completely
+offline on your computer:
+- The React Frontend (pre-built in BhashaSetu/dist, source in BhashaSetu/src)
+- The Python FastAPI Backend (server.py)
+- The Fine-Tuned mT5 Hindi-Mundari ML Model (Hindi_Mundari_MT5/)
+- Neural Speech Engine (edge-tts + browser fallback)
+
+----------------------------------------------------------------
+1. QUICK START (1-Click on Windows)
+----------------------------------------------------------------
+Double-click:
+      run_app.bat
+
+This will automatically check Python dependencies, open http://127.0.0.1:8000
+in your default browser, and load the mT5 model!
+
+----------------------------------------------------------------
+2. MANUAL START (Command Line / PowerShell / Terminal)
+----------------------------------------------------------------
+1. Open PowerShell or Command Prompt in this folder.
+2. Install the required Python packages:
+      pip install -r requirements.txt
+3. Start the application:
+      python server.py
+4. Open your browser at:
+      http://127.0.0.1:8000
+
+----------------------------------------------------------------
+3. FRONTEND DEVELOPMENT (Optional)
+----------------------------------------------------------------
+If you want to edit the React frontend with hot-reloading:
+1. Open a terminal in the BhashaSetu subfolder:
+      cd BhashaSetu
+2. Install Node packages:
+      npm install
+3. Start Vite dev server:
+      npm run dev
+================================================================

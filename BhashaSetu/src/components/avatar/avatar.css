@@ -1,0 +1,105 @@
+/* ---------- Avatar companion ---------- */
+.avatar { position: relative; width: 100%; }
+.avatar__svg { display: block; width: 100%; height: auto; overflow: visible; }
+
+.av-breath { transform-origin: 200px 560px; animation: av-breathe 4.6s ease-in-out infinite; }
+@keyframes av-breathe { 0%, 100% { transform: scaleY(1); } 50% { transform: scaleY(1.011); } }
+
+.av-head-state { transition: transform 0.75s cubic-bezier(0.4, 0.1, 0.2, 1); }
+.av-limb { transition: transform 0.9s cubic-bezier(0.4, 0.1, 0.2, 1); }
+.av-eye { transition: transform 0.09s ease-out; }
+.av-pupil { transition: transform 0.45s ease; }
+
+.av-head-anim { transform-origin: 200px 300px; animation: av-sway 7s ease-in-out infinite; }
+@keyframes av-sway { 0%, 100% { transform: rotate(0) translateY(0); } 50% { transform: rotate(0.6deg) translateY(-1.2px); } }
+
+.avatar[data-state='speaking'] .av-head-anim { animation: av-talk 2.4s ease-in-out infinite; }
+@keyframes av-talk {
+  0%, 100% { transform: rotate(-0.9deg) translateY(0); }
+  30% { transform: rotate(0.8deg) translateY(-1.5px); }
+  65% { transform: rotate(-0.3deg) translateY(0.6px); }
+}
+.avatar[data-state='encouraging'] .av-head-anim { animation: av-nod 1.1s ease-in-out 2; }
+@keyframes av-nod { 0%, 100% { transform: translateY(0); } 40% { transform: translateY(5px); } }
+.avatar[data-state='happy'] .av-head-anim,
+.avatar[data-state='success'] .av-head-anim { animation: av-joy 1.6s ease-in-out 2; }
+@keyframes av-joy { 0%, 100% { transform: translateY(0) rotate(0); } 45% { transform: translateY(-4px) rotate(-1deg); } }
+
+.av-fore-anim { transform-origin: 92px 414px; }
+.avatar[data-state='speaking'] .av-fore-anim { animation: av-gesture 2.1s ease-in-out infinite; }
+.avatar[data-state='encouraging'] .av-fore-anim { animation: av-gesture 1.6s ease-in-out 3; }
+@keyframes av-gesture { 0%, 100% { transform: rotate(-7deg); } 50% { transform: rotate(9deg); } }
+
+/* effects */
+.av-hear { opacity: 0; animation: av-hear 1.5s ease-in-out infinite; }
+@keyframes av-hear { 0% { opacity: 0; } 40% { opacity: 0.9; } 100% { opacity: 0; } }
+.av-dot { transform-box: fill-box; transform-origin: center; animation: av-dot 1.3s ease-in-out infinite; }
+@keyframes av-dot { 0%, 100% { opacity: 0.25; transform: scale(0.8); } 50% { opacity: 1; transform: scale(1.1); } }
+.av-qmark { animation: av-float 2.2s ease-in-out infinite; }
+@keyframes av-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+.av-sparkle { transform-box: fill-box; transform-origin: center; animation: av-spark 1.9s ease-out both; opacity: 0; }
+@keyframes av-spark {
+  0% { transform: scale(0) rotate(-30deg); opacity: 0; }
+  30% { transform: scale(1) rotate(0); opacity: 1; }
+  100% { transform: scale(0.6) rotate(20deg) translateY(-8px); opacity: 0; }
+}
+.av-confetti { animation: av-conf 2.1s cubic-bezier(0.2, 0.7, 0.3, 1) both; opacity: 0; }
+@keyframes av-conf {
+  0% { transform: translate(0, 0) scale(0.4); opacity: 0; }
+  15% { opacity: 1; }
+  100% { transform: translate(var(--dx), calc(var(--dy) + 100px)) scale(1); opacity: 0; }
+}
+
+/* speech bubble */
+.avatar__bubble {
+  position: absolute;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  max-width: 250px;
+  width: max-content;
+  padding: 14px 20px;
+  background: #fff;
+  color: var(--ink);
+  border-radius: 24px;
+  box-shadow: 0 14px 30px -14px rgba(8, 43, 104, 0.35), 0 2px 6px rgba(8, 43, 104, 0.06);
+  font: 600 clamp(15px, 1.4vw, 19px) / 1.4 var(--font-mixed);
+  animation: bubble-in 0.4s cubic-bezier(0.2, 0.9, 0.3, 1.15) both;
+}
+.avatar__bubble::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: #fff;
+  border-radius: 3px;
+  transform: rotate(45deg);
+}
+.avatar__bubble--side { top: 8%; right: 66%; transform-origin: 100% 80%; }
+.avatar__bubble--side::after { right: -6px; bottom: 20px; }
+.avatar__bubble--top { left: 50%; bottom: 100%; margin-bottom: 6px; translate: -50% 0; transform-origin: 50% 100%; text-align: center; justify-content: center; }
+.avatar__bubble--top::after { left: 50%; bottom: -6px; margin-left: -8px; }
+@keyframes bubble-in { 0% { opacity: 0; transform: scale(0.85) translateY(6px); } 100% { opacity: 1; transform: scale(1) translateY(0); } }
+
+.avatar__bubble .wave { color: var(--blue-2); height: 18px; }
+.avatar__bubble.is-listening, .avatar__bubble.is-thinking { color: var(--blue); }
+.avatar__bubble.is-happy .avatar__bubble-text, .avatar__bubble.is-success .avatar__bubble-text { color: var(--green); }
+.avatar__bubble.is-confused { box-shadow: 0 14px 30px -14px rgba(8, 43, 104, 0.35), 0 0 0 2px rgba(255, 181, 46, 0.55); }
+.avatar__bubble-progress { display: block; width: 100%; height: 6px; border-radius: 6px; background: var(--sky); overflow: hidden; }
+.avatar__bubble-progress span { display: block; height: 100%; border-radius: 6px; background: linear-gradient(90deg, var(--cyan), var(--green)); animation: grow-x 1.2s ease-out both; transform-origin: left; }
+@keyframes grow-x { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+/* audio wave */
+.wave { display: inline-flex; align-items: center; gap: 3px; height: var(--bar-h, 26px); }
+.wave > span {
+  width: 4px;
+  height: calc(var(--bar-h, 26px) * var(--m, 0.6));
+  border-radius: 4px;
+  background: currentColor;
+  transform: scaleY(0.16);
+  transition: transform 0.3s ease;
+}
+.wave.is-active > span { animation: wave 1.05s ease-in-out infinite; animation-delay: calc(var(--i) * -0.085s); }
+@keyframes wave { 0%, 100% { transform: scaleY(0.28); } 50% { transform: scaleY(1); } }

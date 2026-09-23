@@ -1,0 +1,23 @@
+# Dependencies
+node_modules/
+BhashaSetu/node_modules/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+
+# Large Model weights (exceeds GitHub 100MB limit)
+*.safetensors
+*.bin
+*.pt
+
+# Archives / Backups
+*.zip
+*.tar.gz
+
+# System files
+.DS_Store
+Thumbs.db
